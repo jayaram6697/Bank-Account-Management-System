@@ -1,0 +1,58 @@
+package java_class;
+
+import java.util.Scanner;
+
+public class Method {
+
+	static int pin=534275;
+	static int amount =3000;
+
+	public static void  main(String []args) {
+		Scanner sc=new Scanner(System.in);
+
+		System .out.println("welcome the bank sir");
+		System.out.println("please enter your pin: ");
+		int enterPin=sc.nextInt();
+
+		if(checkpin(enterPin)) {
+			System.out.println("pin verified succesfully");
+			System.out.println("current Balance :"+ currentBalance());
+
+			System.out.println("enter amount withdraw : ");
+			int withdrawamount=sc.nextInt();
+
+			withdraw(withdrawamount);
+			System.out.println("final amount :"+finalBalance());
+
+		}
+		else {
+			System.out.println("insufficient pin :");
+		}
+		sc.close();
+	    }
+	public static boolean checkpin(int enterPin) {
+		return enterPin==pin;
+
+
+
+	}
+	public static int currentBalance() {
+		return amount;
+	}
+	public static void withdraw(int wmount) {
+		if(wmount>amount) {
+			System.out.println("insufficient balance");
+		}
+		else {
+			amount -=wmount;
+			System.out.println(amount);
+		}
+	}
+	public static int finalBalance() {
+		return amount;
+
+	}
+
+}
+
+
